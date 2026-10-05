@@ -1,0 +1,64 @@
+<!-- Gabriel De La Rosa Grijalva -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 8 - Tabla 1</title>
+
+<!-- En esta tarea realizaremos lo que parecera una tabla pero en vez de utilizar etiquetas de tabla, usaremos elementos div para crear una estructura similar y con
+    css le daremos estilo y caracteristicas a cada DIV recordando que la tabla debe ser de 980px de ancho por 800px de alto, debe tener 2 filas, y una de ellas debe tener 50px de alto 
+    mientras que la otra debe estar conformada por 2 columnas y una de ellas debe de ser de 100px de ancho mientras que la otra cubra el resto del espacio-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .table {
+            width: 980px;
+            height: 800px;
+            border-collapse: 1px solid black;
+        }
+
+        .row {
+            display: flex;
+            height: 50px;
+        }
+
+        .cell {
+            display: table-cell;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Tabla 1</h1>
+
+    <!-- Los divs funcionan algo asi como cajas, por lo que todo debe ir dentro de una caja grande, y de ahi subdividir entre las celdas que querramos para nuestro diseño -->
+    <!-- Caja principal -->
+    <div class="table">
+        <!-- Fila 1 -->
+        <div class="row">Fila 50px alto</div>
+        <!-- Fila 2 -->
+        <div class="row">
+            <div class="column">Columna 100px ancho</div>
+            <div class="column"></div>
+
+
+    </div>
+    <!-- <table border = "1" width = 960 height = 800>
+        <tr>
+            <td height = "50" colspan = "2">Fila 50px alto</td>
+        </tr>
+
+        <tr>
+            <td width = "100" valign="top">Columna 100px ancho</td>
+
+            <td></td>
+
+        </tr>
+    === </table> -->
+
+
+</body>
+</html>

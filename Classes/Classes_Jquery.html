@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+
+<style>
+
+    #mensaje {
+        color: #F00;
+        font-size: 18px;
+        font-weight: bold;
+        width: 224px;
+        height: 30px;
+        line-height: 30px;
+        background-color: #CCC;
+        text-align: center;
+    } 
+    .alumno {
+        color: #0066cc;
+        line-height: 22px;
+    }
+    .maestro {
+        color: #005a1f;
+        line-height: 22px;
+    }
+    .reprobado {
+        background-color: #FF0000;
+        color: #000;
+    }
+
+</style>
+
+<script>
+    function eliminaAlumnos() {
+        $('.alumno').hide();
+        $('#mensaje').html('Tu registro fue eliminado...');
+        setTimeout("$('#mensaje').html('');", 5000);
+    }
+
+    /*function eliminaMaestro(){
+
+        $('#maestro1').hide();
+        $('#mensaje').html('El maestro fue despedido...');
+        setTimeout("$('#mensaje').html('')",5000);
+
+    }*/
+
+    function eliminaMaestro(id){
+
+        $('#maestro'+id).hide();
+        $('#mensaje').html('El maestro fue despedido...');
+        setTimeout("$('#mensaje').html('')",5000);
+
+    }
+
+
+</script>
+
+<body>
+
+    <div class="alumno">Rubén Maldonado</div>
+    <div class="alumno reprobado">Aaron Jimenez</div>
+    <div class="alumno">Marisela Guzman</div>
+    <div class="maestro" id="maestro1"> Patricia Lopez</div>
+    <div class="maestro" id="maestro2"> Luis Casillas</div><br></br>
+    <input onclick="eliminaMaestro(2);" type="submit" value="Eliminar"/> <br><br>
+    <div id="mensaje"></div>
+
+</body>
+</html>

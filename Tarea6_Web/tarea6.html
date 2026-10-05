@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Tarea 6 Formulario</title>
+    
+    <script src="js/jquery-4.0.0.min.js"></script>
+
+    <style>
+
+
+        #mensaje {
+            color: rgb(253, 0, 0);
+            font-size: 18px;
+            font-weight: bold;
+            width: 224px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #CCC;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        #info {
+            color: rgb(0, 16, 163);
+            font-size: 18px;
+            font-weight: bold;
+            width: 224px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+
+    </style>
+
+
+    <!-- Sintaxis de JavaScript -->
+    <!--Aqui debe de haber una funcion que valide que los 3 campos del formulario no esten vacios, si alguno de ellos 
+    esta vacio debe de mostrar un mensaje en el div con id mensaje que diga "Faltan campos por llenar", si los 3 campos estan 
+    llenos debe de mostrar un mensaje en el div con id mensaje que diga "Campos llenos" y limpiar los campos del formulario.-->
+
+    <!-- Ahora tenemos que poner un mensaje en el div con id info para mostrar la información del usuario 
+        en donde colocaremos la información registrada en el formulario y en el caso del select se debe colocar con texto
+        no el valor numerico que nos regresa la funcion -->
+
+    <script>
+        function valida(){
+            var user = $("#user").val();
+            var pass = $("#pass").val();
+            var rol = $("#rol").val();
+
+            if(user === "" || pass === "" || rol === "0"){
+                $("#mensaje").html("Faltan campos por llenar");
+                setTimeout(function() {
+                    $("#mensaje").html("");
+                }, 2000);
+            } else {
+                $("#mensaje").html("Campos llenos");
+                setTimeout(function() {
+                    $("#mensaje").html("");
+                }, 2000);
+                
+                // Ahora vamos a mostrar la información en el div con id info
+
+                var rolTexto = $("#rol option:selected").text();
+                $("#info").html("Usuario: " + user + "<br>Contraseña: " + pass + "<br>Rol: " + rolTexto);
+                setTimeout(function() {
+                    $("#info").html("");
+                }, 3000);
+            }
+        }
+
+    </script>
+    
+
+
+
+
+</head>
+<body>
+
+    <form name="forma01" id="forma01" method="get" action="recibe.php" align="center"> 
+
+        <input type="text" name="user" id="user" placeholder="Correo" /><br>
+        <input type="text" name="pass" id="pass" placeholder="Pass" /><br>
+        <select name="rol" id="rol">
+            <option value="0">Selecciona</option>
+            <option value="1">Gerente</option>
+            <option value="2">Ejecutivo</option>
+        </select>
+        <br>
+        <input onclick="valida() ; return false;" type="submit" value="Enviar"/>
+        <div id="mensaje"></div>
+        <div id="info"></div>
+
+
+    
+</body>
+</html>

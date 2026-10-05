@@ -1,0 +1,134 @@
+<!-- Gabriel De La Rosa -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Modelos de Audi / Tarea 7 </title>
+</head>
+
+<script src="js/jquery-4.0.0.min.js"></script>
+
+<!-- En esta actividad se creara una tabla con los modelos de Audi, en la que habra 3 columnas, 1 fila para el titulo y 5 filas para los modelos 
+     en la primer columna van las imagenes, en la segunda columna van los nombres de los modelos y en la tercera columna iran botones con los cuales
+     se llamara a una función de JavaScript que ocultara la fila correspondiente por medio de jQuery, el boton debe solicitar al usuario que confirme la acción 
+     y lo haremos por medio de la función confirm() de JavaScript, debe ser una sola funcion.-->
+
+<script>
+
+    function ocultarFila(boton) {
+        if (confirm("¿Estás seguro de que deseas ocultar esta fila?")) {
+            $(boton).closest("tr").hide();
+        }
+    }
+
+
+</script>
+
+
+<body>
+
+    <table border="1" width="100%" style="text-align: center;">
+        
+        <tr> <td colspan="3">Modelos de Audi</td></tr>
+        <tr>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-a5-sedan-16091" target="_blank">
+                    <img src="audia5_Sedan.jpg" width="200">
+                </a>
+            
+            </td>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-a5-sedan-16091" target="_blank">
+                    Audi A5 Sedan
+                </a>
+            </td>
+            <td>
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-a8-51" target="_blank">
+                    <img src="audia8.jpg" width="200">
+                </a>
+            
+            </td>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-a8-51" target="_blank">
+                    Audi A8
+                </a>
+            </td>  
+            <td>
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-q3-suv-16689" target="_blank">
+                    <img src="audiq3_Suv.jpg" width="200">
+                </a>
+            
+            </td>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-q3-suv-16689" target="_blank">
+                    Audi Q3 SUV
+                </a>
+            </td>
+            <td>
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-q5-suv-12871" target="_blank">
+                    <img src="audiq5_Suv.jpg" width="200">
+                </a>
+            
+            </td>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-q5-suv-12871" target="_blank">
+                    Audi Q5 SUV
+                </a>
+            </td>
+            <td>
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-q9-suv-18146" target="_blank">
+                    <img src="audiq9_Suv.jpg" width="200">
+                </a>
+            
+            </td>
+
+            <td>
+                <a href = "https://www.audi.com/en/audi-q9-suv-18146" target="_blank">
+                    Audi Q9 SUV
+                </a>
+            </td>
+            <td>
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </td>
+        </tr>
+
+
+    </table>
+
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Formularios</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    
+    <script>
+
+        ///Sintaxis de JavaScript 
+        //Estos son Comentarios
+
+
+        function valida(){
+            var user = $("#user").val();
+            alert(user);
+        }
+
+        /*functionmiAlerta() {
+
+            alert("Hola <------>");
+        }*/
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+    <form name ="forma01" id="forma01"
+            method="get" action="recibe.php">
+
+        <input type="text" name="user" id="user" value="@udg.mx"/><br>
+        <input type="text" name="pass" id="pass" placeholder="Escribe tu password" /><br>
+        <select name="rol" id="rol">
+            <option value="0">Selecciona</option>
+            <option value="1">Gerente</option>
+            <option value="2">Ejecutivo</option>
+        </select>
+        <br>
+        <input onclick="valida() ; return false;" type="submit" value="Enviar"/>
+        <div id="mensaje"></div>
+
+    </form>
+  </body>
+</html>

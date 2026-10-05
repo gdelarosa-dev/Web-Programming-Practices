@@ -1,0 +1,162 @@
+<!-- Gabriel De La Rosa Grijalva -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Tabla 4</h1>
+
+    <table border = "1" width = 960 height = 800 align="center">
+        
+        <tr>
+            <!--Tabla 1-->
+            <td width = "50%" height = "50%">
+                <!--1er tabla anidada al centro del primer cuadro-->
+                <table border = "1" width = 50% height = 60% align="center">
+                    
+                    <tr>
+                        <td colspan="2" height="10">    </td>
+                    </tr>
+
+                    <tr>
+                        <td width = "10">    </td>
+                        <td>    </td>
+                    </tr>
+
+                </table>
+
+            </td>
+
+            <!--Tabla 2-->
+            <td width = "50%" height = "50%">  
+                <!--2da tabla anidada al centro del segundo cuadro-->
+                <table border="1" width = 50% height = 60% align="center"> 
+                    
+                    <!--1er fila, tiene que cubrir 2 columnas-->
+                    <tr>
+                        <td colspan="2" height = "10">
+
+                        </td>
+
+                    </tr>
+
+                    <!--2do fila, deben ser 2 columnas con 2 mitades iguales-->
+                    <tr>    
+                        <td width = "50%"></td>
+                        <td width = "50%"></td>
+
+                    </tr>
+
+                    <!--3er fila igual que la primera debe ocupar 2 columnas y misma altura-->
+                    <tr>
+                        <td colspan="2" height = "10">
+
+                        </td>
+
+                    </tr>
+
+
+                </table>
+                
+            </td>
+
+
+        </tr>
+
+        <tr>
+            <!--Tabla 3-->    
+            <td width = "50%" height = "50%">    
+                <!--3er tabla anidada al centro del 3er cuadro-->
+                <table border="1" width = 50% height = 60% align="center">
+
+                    <!--Esta tabla tiene 4 filas en total, esta es la 1er fila-->
+                    <tr>
+                        <td colspan="2" height = "10">  
+
+                        </td>
+
+                    </tr>
+
+                    <!--2da fila tiene que tener una de sus columnas un rowspan para cubrir 2 filas.-->
+                    <tr>
+                        <td rowspan="2" width = "10">
+                            
+                        </td> 
+
+                        <!--Este es el cuadro derecho superior.-->
+                        <td>
+
+                        </td>
+                    </tr>
+
+                    <!--3ra fila, pero como hay un rowspan en la parte superior solo hay que hacer un cuadro.-->
+                    <tr>
+                        <td>    </td>
+                    </tr>
+
+                    <!--4ta y ultima fila solo la hacemos igual que la primer fila.-->
+                    <tr>
+                        <td colspan="2" height = "10">
+
+                        </td>
+                    </tr>
+                
+
+                </table>
+
+            </td>
+
+            <!--Tabla 4-->
+            <td width = "50%" height = "50%">    
+
+                <!--4ta y ultima tabla anidada al centro del 4to cuadro-->
+                <table border="1" width = 50% height = 60% align="center">
+
+                    <!--Esta tabla es como la tabla principal donde estan anidadas todas las demas tablas.
+                    Son 4 sectores, 4 mitades las cuales tienen la misma medida forma 4 cuadros.-->
+
+                    <!--Eso significa que hay 2 filas y 2 columnas en cada fila.
+                    1er fila empieza aqui-->
+                    <tr>
+                        <!--1er cuadro.-->
+                        <td width = "50%" height = "50%">
+
+                        </td>
+                        
+                        <!--2do cuadro.-->
+                        <td width = "50%" height = "50%">
+
+                        </td>
+
+                    </tr>
+
+                    <!--2do fila-->
+                    <tr>
+                        <!--3er cuadro.-->
+                        <td width = "50%" height = "50%">
+
+                        </td>
+
+                        <!--4to cuadro.-->
+                        <td width = "50%" height = "50%">
+
+                        </td>
+                        
+
+                    </tr>
+
+
+                </table>
+                    
+
+            </td>
+
+
+        </tr>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Tarea 5 Formulario</title>
+    
+    <script src="js/jquery-4.0.0.min.js"></script>
+
+
+    <!-- Sintaxis de JavaScript -->
+    <!--Aqui debe de haber una funcion que valide que los 3 campos del formulario no esten vacios, si alguno de ellos 
+    esta vacio debe de mostrar un mensaje en el div con id mensaje que diga "Faltan campos por llenar", si los 3 campos estan 
+    llenos debe de mostrar un mensaje en el div con id mensaje que diga "Campos llenos" y limpiar los campos del formulario.-->
+
+    <script>
+        function valida(){
+            var user = $("#user").val();
+            var pass = $("#pass").val();
+            var rol = $("#rol").val();
+
+            if(user === "" || pass === "" || rol === "0"){
+                $("#mensaje").html("Faltan campos por llenar");
+                setTimeout(function() {
+                    $("#mensaje").html("");
+                }, 2000);
+            } else {
+                $("#mensaje").html("Campos llenos");
+                setTimeout(function() {
+                    $("#mensaje").html("");
+                }, 2000);
+            }
+        }
+
+    </script>
+    
+
+
+
+
+</head>
+<body>
+
+    <form name="forma01" id="forma01" method="get" action="recibe.php" align="center"> 
+
+        <input type="text" name="user" id="user" placeholder="Correo" /><br>
+        <input type="text" name="pass" id="pass" placeholder="Pass" /><br>
+        <select name="rol" id="rol">
+            <option value="0">Selecciona</option>
+            <option value="1">Gerente</option>
+            <option value="2">Ejecutivo</option>
+        </select>
+        <br>
+        <input onclick="valida() ; return false;" type="submit" value="Enviar"/>
+        <div id="mensaje"></div>
+        
+
+
+    
+</body>
+</html>
