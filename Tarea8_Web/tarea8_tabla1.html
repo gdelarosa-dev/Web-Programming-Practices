@@ -19,13 +19,7 @@
             border-collapse: 1px solid black;
         }
 
-        .row {
-            display: flex;
-            height: 50px;
-        }
-
         .cell {
-            display: table-cell;
             border: 1px solid black;
             padding: 10px;
         }
@@ -40,27 +34,13 @@
 
     <div class="table">
         <div class="row">
-            <div class="cell" style="height: 50px; width: 100%;">Fila 50px alto</div>
-        </div>  
-        <div class="row" style="height: 750px;">
-            <div class="cell" style="width: 100px;">Columna 100px ancho</div>
-            <div class="cell" style="width: calc(100% - 100px);">Columna restante</div>
+            <div class="cell fila-encabezado" style="width: 100%;">Fila 50px alto</div>
         </div>
-
-    
-    <!-- <table border = "1" width = 960 height = 800>
-        <tr>
-            <td height = "50" colspan = "2">Fila 50px alto</td>
-        </tr>
-
-        <tr>
-            <td width = "100" valign="top">Columna 100px ancho</td>
-
-            <td></td>
-
-        </tr>
-    === </table> -->
-
+        <div class="row">
+            <div class="cell columna-fija">Columna 100px ancho</div>
+            <div class="cell">Columna restante</div>
+        </div>
+    </div>
 
 </body>
 </html>
