@@ -14,28 +14,51 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
 
-        /* Con border-box, el borde y el padding se cuentan dentro del ancho y alto declarado, asi las medidas finales son exactamente las que declaramos */
-
-        div {
-            box-sizing: border-box;
-        }
-
-        /* Caja principal: 960px ancho por 800px alto */
+        /*Nota Importante:
+          Cuando un div tiene borde, el borde SE SUMA al ancho y al alto.
+          Un borde de 1px agrega 1 px por cada lado, o sea 2px en total.
+          Por eso a los divs con borde les restamos 2px a su ancho y alto
+          para que el tamaño final sea el deseado. */
+        
+        /* Caja principal (la tabla completa): 960px ancho por 800px alto */
         .tabla {
             width: 960px;
-            height: 800px;
+            height: 800px;        
         }
 
-        /* Fila 1: 50px alto, ocupa todo el ancho */
+        /* Fila 1: debe medir 960 px de andho x 50px alto en total. */
         .fila1 {
-            
-            width: 960px;
-            height: 50px;
+            width: 958px; /* 960px - 2px del borde */
+            height: 48px; /* 50px - 2px del borde */
             border: 1px solid black;
-            padding-left: 5px;
-            line-height: 48px; /* Centra verticalmente el texto (50px - 2px de borde) */
+            line-height: 48px; /* Para centrar verticalmente el texto */
         }
 
+        /* Fila 2: Debe ocupar lo que sobra de alto. 800px - 50px = 750px 
+           Esta fila no lleva borde, solo sirve como una caja para contener a las 2 columnas */
+        .fila2 {
+            width: 960px;
+            height: 750px; /* 800px - 50px */
+        }
+
+        /* Columna 1: debe medir 100px x 750px  en total.
+           Con el borde (2px) -> ancho 98px y alto 748px 
+           float: left la pega a la izquierda para que la otra columna se coloque a su derecha */
+        .columna1 {
+            float: left;
+            width: 98px; /* 100px - 2px del borde */
+            height: 748px; /* 750px - 2px del borde */
+            border: 1px solid black;
+        }
+
+        /* Columna 2: ocupa el resto del ancho: 960px - 100px = 860px
+           Con el borde (2px) -> ancho 858px y alto 748px */
+        .columna2 {
+            float: left;
+            width: 858px; /* 960px - 100px - 2px del borde */
+            height: 748px; /* 750px - 2px del borde */
+            border: 1px solid black;
+        }
         
 
     </style>
