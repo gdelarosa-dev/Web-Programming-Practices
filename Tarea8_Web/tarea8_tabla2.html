@@ -1,0 +1,115 @@
+<!-- Gabriel De La Rosa Grijalva -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 8 - Tabla 2</title>
+
+    <!--En esta tarea realizaremos una tabla en la cual habra 3 filas y 2 columnas, la primer fila ocupara todo el ancho con una altura de 50px
+        mientras que la segunda fila estara conformada por las 2 columnas las cuales cada una conformara un 50% del ancho total y por ultimo
+        la tercer fila sera de 50px de alto y al igual que la primera debera ocupar todo el ancho -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+
+        /*Nota Importante:
+          Cuando un div tiene borde, el borde SE SUMA al ancho y al alto.
+          Un borde de 1px agrega 1 px por cada lado, o sea 2px en total.
+          Por eso a los divs con borde les restamos 2px a su ancho y alto
+          para que el tamaño final sea el deseado. */
+        
+        /* Caja principal (la tabla completa) 960px ancho por 800px alto */
+        .tabla {
+            width: 960px;
+            height: 800px;        
+        }
+
+        /* Fila 1: debe medir 960 px de andho x 50px alto en total. */
+        .fila1 {
+            width: 958px; /* 960px - 2px del borde */
+            height: 48px; /* 50px - 2px del borde */
+            border: 1px solid black;
+            line-height: 48px; /* Para centrar verticalmente el texto */
+        }
+
+        /* Fila 2: Debe ocupar lo que sobra de alto. 800px - 50px - 50px = 700px 
+           Esta fila no lleva borde, solo sirve como una caja para contener a las 2 columnas */
+        .fila2 {
+            width: 960px;
+            height: 700px; /* 800px - 50px - 50px */
+        }
+
+        /* Columna 1: debe medir 50% ancho x 700px alto en total.
+           Con el borde (2px) -> ancho 478px y alto 698px 
+           float: left la pega a la izquierda para que la otra columna se coloque a su derecha */
+        .columna1 {
+            float: left;
+            width: 478px; /* 50% de 960px - 2px del borde */
+            height: 698px; /* 700px - 2px del borde */
+            border: 1px solid black;
+        }
+
+        /* Columna 2: debe medir 50% ancho x 700px alto en total.
+           Con el borde (2px) -> ancho 478px y alto 698px */
+        .columna2 {
+            float: left;
+            width: 478px; /* 50% de 960px - 2px del borde */
+            height: 698px; /* 700px - 2px del borde */
+            border: 1px solid black;
+        }
+
+        /* Fila 3: debe medir 960 px de andho x 50px alto en total. */
+        .fila3 {
+            width: 958px; /* 960px - 2px del borde */
+            height: 48px; /* 50px - 2px del borde */
+            border: 1px solid black;
+            line-height: 48px; /* Para centrar verticalmente el texto */
+        }
+
+
+
+
+    </style>
+
+
+</head>
+<body>
+
+    <h1>Tabla 2</h1>
+    
+    Tabla: 960px ancho x 800px alto
+    <!-- Los divs funcionan algo asi como cajas, por lo que todo debe ir dentro de una caja grande, y de ahi subdividir entre las celdas que querramos para nuestro diseño -->
+
+    <!-- Caja principal -->
+     <div class="tabla">
+
+        <!-- Fila 1 -->
+        <div class="fila1"> Fila 50px alto </div>
+
+        <!-- Fila 2 -->
+        <div class="fila2">
+
+            <!-- Columna 1 -->
+            <div class="columna1"> Columna 50% ancho </div>
+
+            <!-- Columna 2 -->
+            <div class="columna2"></div>
+
+
+        </div>
+
+        <!-- Fila 3 -->
+        <div class="fila3"> Fila 50px alto </div>
+
+
+
+
+
+     </div>
+
+
+
+    
+</body>
+</html>
