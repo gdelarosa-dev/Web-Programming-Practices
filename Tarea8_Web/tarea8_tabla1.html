@@ -12,28 +12,58 @@
     esto sin usar un display, solo y unicamente div y atributos que cambien el aspecto del div con el fin de generar las tablas-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!--<style>
-        .table {
-            width: 980px;
-            height: 800px;
-            border-collapse: 1px solid black;
+    <style>
+
+        /* Con border-box, el borde y el padding se cuentan dentro del ancho y alto declarado, asi las medidas finales son exactamente las que declaramos */
+
+        div {
+            box-sizing: border-box;
         }
 
-        .cell {
-            border: 1px solid black;
-            padding: 10px;
+        /* Caja principal: 960px ancho por 800px alto */
+        .tabla {
+            width: 960px;
+            height: 800px;
         }
-    </style> -->
+
+        /* Fila 1: 50px alto, ocupa todo el ancho */
+        .fila1 {
+            
+            width: 960px;
+            height: 50px;
+            border: 1px solid black;
+            padding-left: 5px;
+            line-height: 48px; /* Centra verticalmente el texto (50px - 2px de borde) */
+        }
+
+        
+
+    </style>
 
 </head>
 <body>
     <h1>Tabla 1</h1>
 
+    Tabla: 960px ancho 800px alto
     <!-- Los divs funcionan algo asi como cajas, por lo que todo debe ir dentro de una caja grande, y de ahi subdividir entre las celdas que querramos para nuestro diseño -->
+    
     <!-- Caja principal -->
+    <div class="tabla">
 
-    <div>
-        
+        <!-- Fila 1 -->
+         <div class="fila1"> Fila 50px alto </div>
+
+        <!-- Fila 2 -->
+        <div class="fila2">
+            
+            <!-- Columna 1 -->
+            <div class="columna1"> Columna 100px ancho </div>
+
+            <!-- Columna 2 -->
+            <div class="columna2"></div>
+
+        </div>
+
 
 
     </div>
