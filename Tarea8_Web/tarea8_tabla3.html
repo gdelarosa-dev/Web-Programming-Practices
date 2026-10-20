@@ -1,0 +1,123 @@
+<!-- Gabriel De La Rosa Grijalva -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 8 - Tabla 3</title>
+
+    <!--En esta tarea haremos una tabla en la cual habra un total de 4 filas y 2 columnas, en la primer fila debera haber una fila que tenga 50px de alto
+        y que abarque ambas columnas, mientras que en la segunda fila y tercer fila habra 2 columnas, en una de las columnas tiene que llevara un ancho de 100 px
+        y abarcar ambas filas, mientras que las segundas columnas en fila 2 y fila 3 debe de abarcar el resto del ancho y un 50% de la altura, y la ultima fila 
+        debe de ser igual que la primera y tener 50px de alto-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+
+        /*Nota Importante:
+          Cuando un div tiene borde, el borde SE SUMA al ancho y al alto.
+          Un borde de 1px agrega 1 px por cada lado, o sea 2px en total.
+          Por eso a los divs con borde les restamos 2px a su ancho y alto
+          para que el tamaño final sea el deseado.
+          Los divs SIN borde NO se restan nada. */
+        
+        /* Caja principal (la tabla completa) 960px ancho por 800px alto */
+        .tabla {
+            width: 960px;
+            height: 800px;        
+        }
+
+        /* Fila 1: debe medir 960 px de andho x 50px alto en total. */
+        .fila1 {
+            width: 958px; /* 960px - 2px del borde */
+            height: 48px; /* 50px - 2px del borde */
+            border: 1px solid black;
+            line-height: 48px; /* Para centrar verticalmente el texto */
+        }
+        
+        /* Fila del centro: Debe ocupar lo que sobra de alto: 800px - 50px - 50px = 700px 
+           Es una sola caja (no dos), porque la columna de 100 px abarca las dos filas del centro.
+           Esta caja NO lleva borde, por eso NO se le resta nada a su ancho y alto. */
+        .filaCentro {
+            width: 960px;
+            height: 700px; /* 800px - 50px - 50px */
+        }
+
+        /* Columna 1: Debe medir 100px x 700px  en total.
+           float: left la pega a la izquierda para que la otra columna se coloque a su derecha */
+        .columna1 {
+            width: 98px; /* 100px - 2px del borde */
+            height: 698px; /* 700px - 2px del borde */
+            border: 1px solid black;
+            float: left;
+        }
+
+        /* Columna 2: Es una caja SIN borde que contiene las 2 celdas apiladas.
+           Ocupa el resto del ancho: 960px - 100px = 860px, y los 700px de alto */
+        .columna2 {
+            width: 860px;
+            height: 700px;
+            float: left;
+        }
+
+        /* Celdas de la columna 2: Cada una mide la mitad de 700px, por lo que si dividimos 700px / 2 = 350px
+           de alto en total. */
+        .celda {
+            width: 858px; /* 860px - 2px del borde */
+            height: 348px; /* 350px - 2px del borde */
+            border: 1px solid black;
+        } 
+
+        /* Fila 4: debe medir 960 px de andho x 50px alto en total. */
+        .fila4 {
+            width: 958px; /* 960px - 2px del borde */
+            height: 48px; /* 50px - 2px del borde */
+            border: 1px solid black;
+            line-height: 48px; /* Para centrar verticalmente el texto */
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+
+    <h1>Tabla 3</h1>
+
+    Tabla: 960px ancho 800px alto
+
+    <!-- Caja principal -->
+
+    <div class="tabla">
+
+        <!-- Fila 1 -->
+        <div class="fila1"> Fila 50 px alto </div>
+
+        
+        <!-- Fila 2 y 3 juntas (la columna de 100px abarca las dos filas)-->
+        <div class="filaCentro">
+
+            <!-- Columna 1 (abarca las filas 2 y 3)-->
+            <div class="columna1"> Columna 100px ancho </div>
+
+            <!-- Columna 2 (contiene las filas 2 y 3, una arriba de la otra)-->
+            <div class="columna2"> 
+                <div class="celda"></div> <!-- Fila 2 -->
+                <div class="celda"></div> <!-- Fila 3 -->
+            </div>
+
+        </div>
+
+        <!-- Fila 4 -->
+        <div class="fila4"> Fila 50 px alto </div>
+
+
+    </div>
+
+
+
+
+    
+</body>
+</html>
