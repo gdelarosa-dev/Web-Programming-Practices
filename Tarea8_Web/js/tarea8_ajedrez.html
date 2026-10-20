@@ -4,9 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarea 8 - Ajedrez </title>
+
+    <!---->
+
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+
+        /*Nota Importante:
+        Cuando un div tiene borde, el borde SE SUMA al ancho y al alto.
+        Un borde de 1px agrega 1px por cada lado, o sea 2px en total.
+        Por eso a las casillas (que tienen borde) les restamos 2px a su ancho y alto
+        para que cada una mida 120px x 100px en total.
+        Los divs SIN borde NO se restan nada. */
+ 
+        /* Caja principal (el tablero completo): 960px de ancho x 800px de alto.
+           margin: auto lo centra horizontalmente en la pagina */
+        .tablero {
+            width: 960px;
+            height: 800px;
+            margin: auto;
+        }
+ 
+        /* Cada fila mide 960px x 100px. No lleva borde, solo sirve de caja para las 8 casillas.
+           8 filas x 100px = 800px */
+        .fila {
+            width: 960px;
+            height: 100px;
+        }
+ 
+        /* Casillas: cada una debe medir 120px x 100px en total.
+           Con el borde (2px) -> ancho 118px y alto 98px.
+           float: left las pega una junto a la otra, de izquierda a derecha.
+           8 casillas x 120px = 960px */
+        .negra, .blanca {
+            float: left;
+            width: 118px; /* 120px - 2px del borde */
+            height: 98px; /* 100px - 2px del borde */
+            border: 1px solid lightgray;
+        }
+ 
+        /* Lo unico que cambia entre las casillas es el color de fondo */
+        .negra {
+            background-color: black;
+        }
+ 
+        .blanca {
+            background-color: white;
+        }
+
+
+
+    </style>
+
+
 </head>
 <body>
+
+    <!--Tablero de ajedrez -->
+    <h1 align="center">Tablero de Ajedrez</h1>
+
+    <!-- Caja principal (reemplaza a la etiqueta table) -->
+    <div class="tablero">
+
+        <!-- El tablero tiene que tener 8 filas y 8 columnas por lo que cada recuadro sera de 120px x 100px -->
+
+        <!-- Fila 1 (reemplaza a tr) -->
+        <div class="fila">
+            
+            <div class="negra"></div> <!-- cada div de casilla reemplazara a un td -->
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+
+        </div>
+
+        <!-- Fila 2 -->
+        <div class="fila">
+            
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+
+        </div>
+
+        <!-- Fila 3 -->
+        <div class="fila">
+            
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+
+        </div>
+
+        <!-- Fila 4 -->
+        <div class="fila">
+            
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+
+        </div>
+
+        <!-- Fila 5 -->
+        <div class="fila">
+            
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+
+        </div>
+
+        <!-- Fila 6 -->
+        <div class="fila">
+            
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+
+        </div>
+
+        <!-- Fila 7 -->
+        <div class="fila">
+            
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+
+        </div>
+
+        <!-- Fila =8 -->
+        <div class="fila">
+            
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+            <div class="blanca"></div>
+            <div class="negra"></div>
+
+        </div>
     
+    </div>
+
 
     
 </body>
