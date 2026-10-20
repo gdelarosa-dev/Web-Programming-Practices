@@ -1,0 +1,273 @@
+<!--Gabriel De La Rosa-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 8 - Tabla 4</title>
+
+    <!-- Vamos a realizar una tabla de dos filas y dos columnas en cada fila, en la cual dentro de cada recuadro habra otra tabla dentro
+         las tablas de dentro deberan ir al centro de cada recuadro y tener un tamaño de 480px x 400px-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    
+        /*Nota Importante:
+          Cuando un div tiene borde, el borde SE SUMA al ancho y al alto.
+          Un borde de 1px agrega 1 px por cada lado, o sea 2px en total.
+          Por eso a los divs con borde les restamos 2px a su ancho y alto
+          para que el tamaño final sea el deseado.
+          Los divs SIN borde NO se restan nada. */
+        
+        /* Caja principal (la tabla completa) 960px ancho por 800px alto */
+        .tabla {
+            width: 960px;
+            height: 800px;        
+        }
+
+        /* Fila 1: debe medir 960 px de ancho x 400px alto en total. 
+           No llevan borde (el borde lo llevan las columnas), por lo que no se restan px */
+        .fila1, .fila2 {
+            width: 960px;
+            height: 400px;
+        }
+
+        /* Columna 1 y 2 (Las grandes): deben medir 50% ancho o sea 480px x 400px alto en total.
+           Con el borde (2px) -> ancho 478px y alto 398px  */
+        .columna1, .columna2 {
+            float: left;
+            width: 478px; /* 50% de 960px - 2px del borde */
+            height: 398px; /* 400px - 2px del borde */
+            border: 1px solid black;
+        }
+
+        /* Tablas anidadas: cada una debe medir 200px ancho x 200px alto y NO llevan borde (solo sirven como caja principal).
+           Para centrarlas dentro del cuadro de 478px x 398px usaremos margenes:
+           margin-top = (398px - 200px) / 2 = 99px 
+           margin-left = (478px - 200px) / 2 = 139px */
+
+        .tablaAnidada1, .tablaAnidada2, .tablaAnidada3, .tablaAnidada4 {
+            width: 200px;
+            height: 200px; 
+            margin-top: 99px; /* (398px - 200px) / 2 */
+            margin-left: 139px; /* (478px - 200px) / 2 */
+        }
+
+        /* -------------------TABLA ANIDADA 1: Barra arriba + columna angosta + columna ancha------------------- */
+
+        /*Barra de arriba: 200px ancho x 20px alto en total. */
+        .fila1_tablaAnidada1, .fila1_tablaAnidada2, .fila1_tablaAnidada3 {
+            width: 198px; /* 200px - 2px del borde */
+            height: 18px; /* 20px - 2px del borde */
+            border: 1px solid black;
+        }
+
+        /* Caja de abajo: 200px ancho x 180px alto en total (200px - 20px). Sin borde*/
+
+        .fila2_tablaAnidada1 {
+            width: 200px;
+            height: 180px;
+        }
+
+        /* Columna angosta: 201px ancho x 180px alto en total. Con borde (2px) -> ancho 98px y alto 178px */
+        .columna1_tablaAnidada1 {
+            float: left;
+            width: 18px; /* 20px - 2px del borde */
+            height: 178px; /* 180px - 2px del borde */ 
+            border: 1px solid black;
+        }
+
+        /* Columna ancha: 200px ancho x 20px = 180px x 180px alto en total. */
+        .columna2_tablaAnidada1 {
+            float: left;
+            width: 178px; /* 180px - 2px del borde */
+            height: 178px; /* 180px - 2px del borde */
+            border: 1px solid black;
+        }
+
+        /* -------------------TABLA ANIDADA 2: Barra arriba + 2 columnas iguales + barra abajo------------------- */
+
+        /*Barra de abajo: igual que la de arriba, 200px x 20px en total. */
+        .fila3_tablaAnidada2, .fila3_tablaAnidada3 {
+            width: 198px; /* 200px - 2px del borde */
+            height: 18px; /* 20px - 2px del borde */
+            border: 1px solid black;
+        }
+
+        /* Caja del centro: 200px ancho x 160px alto en total (200px - 20px - 20px). Sin borde*/
+        .fila2_tablaAnidada2 {
+            width: 200px;
+            height: 160px;
+        }
+
+        /* Dos columnas iguales: cada una 100px x 160px en total. Con borde (2px) -> ancho 98px y alto 158px */
+        .columna1_tablaAnidada2, .columna2_tablaAnidada2 {
+            float: left;
+            width: 98px; /* 100px - 2px del borde */
+            height: 158px; /* 160px - 2px del borde */
+            border: 1px solid black;
+        }
+
+        /* -------------------TABLA ANIDADA 3: Barra arriba + columna angosta con 2 celdas + barra abajo------------------- */
+
+        /* Caja del centro: 200px x 160px. Sin borde */
+        .filaCentro {
+            width: 200px;
+            height: 160px;
+        }
+
+        /* Columna angosta (abarca las 2 celdas): 20px x 160px en total */
+        .columna1_tablaAnidada3 {
+            float:left;
+            width: 18px; /* 20px - 2px del borde */
+            height: 158px; /* 160px - 2px del borde */
+            border: 1px solid black;
+        }
+
+        /* Columna del lado derecho: Caja SIN borde que contiene a las 2 celdas apiladas.
+           Mide el resto del ancho: 200px - 20px = 180px x 160px */
+        .columna2_tablaAnidada3 {
+            float: left;
+            width: 180px;
+            height: 160px;
+
+        }
+
+        /* Celdas: Cada una mide la mitad de 160px = 80px de alto en total */
+        .celda {
+            width: 178px; /* 180px - 2px del borde */
+            height: 78px; /* 80px - 2px del borde */
+            border: 1px solid black;
+
+        }
+
+        /*------------------------- TABLA ANIDADA4 */
+
+
+
+
+    </style>
+
+
+</head>
+<body>
+
+    <h1>Tabla 4</h1>
+
+    Tabla: 960px ancho x 800px alto
+
+    <!-- Caja principal -->
+
+    <div class="tabla">
+
+        <!-- Fila 1-->
+
+        <div class="fila1">
+
+            <!-- Columna 1 -->
+            <div class="columna1">
+                <!-- Tabla anidada al centro del primer cuadro -->
+                <div class="tablaAnidada1">
+                    <!-- Fila 1 tablaAnidada1 -->
+                        <div class="fila1_tablaAnidada1"> Fila 50px alto </div>
+
+                    <!-- Fila 2 tablaAnidada1 -->
+                        <div class="fila2_tablaAnidada1">
+            
+                        <!-- Columna1 tablaAnidada1 -->
+                        <div class="columna1_tablaAnidada1"> Columna 100px ancho </div>
+
+                        <!-- Columna2 tablaAnidada1 -->
+                        <div class="columna2_tablaAnidada1"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna 2 -->
+            <div class="columna2">
+                <!-- Tabla anidada al centro del segundo cuadro -->
+                <div class="tablaAnidada2">
+                    <!-- Fila1 tablaAnidada2 -->
+                        <div class="fila1_tablaAnidada2"> Fila 50px alto </div>
+
+                    <!-- Fila2 tablaAnidada2 -->
+                            <div class="fila2_tablaAnidada2">
+
+                            <!-- Columna1 tablaAnidada2 -->
+                            <div class="columna1_tablaAnidada2"> Columna 50% ancho </div>
+
+                            <!-- Columna 2 -->
+                            <div class="columna2_tablaAnidada2"></div>
+
+                    </div>
+                </div>
+            </div>        
+
+
+        </div>
+
+        <!-- Fila 2 -->
+
+        <div class="fila2">
+
+            <!-- Columna 1 -->
+            <div class="columna1">
+                <!-- Tabla anidada al centro del primer cuadro -->
+                <div class="tablaAnidada3">
+                    
+                    <!-- Fila1 tablaAnidada3 -->
+                    <div class="fila1_tablaAnidada3"> Fila 50 px alto </div>
+
+        
+                    <!-- Fila2_tablaAnidada3 y fila3_tablaAnidada3 juntas (la columna de 100px abarca las dos filas)-->
+                    <div class="filaCentro">
+
+                    <!-- Columna1_tablaAnidada3 (abarca las filas 2 y 3)-->
+                    <div class="columna1_tablaAnidada3"> Columna 100px ancho </div>
+
+                    <!-- Columna2_tablaAnidada3 (contiene las filas 2 y 3, una arriba de la otra)-->
+                    <div class="columna2_tablaAnidada3"> 
+                        <div class="celda"></div> <!-- Fila 2 -->
+                        <div class="celda"></div> <!-- Fila 3 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna 2 -->
+
+            <div class="columna2">
+            <!-- Tabla anidada al centro del segundo cuadro -->
+            <div class="tablaAnidada4"> <!-- TablaAnidada4 debe tener cuatro cuadrantes iguales del mismo tamaño -->
+                
+                <!--Fila1 tablaAnidada4-->
+                <div class="fila1_tablaAnidada4">Fila de 200px alto</div>
+                
+                    <!-- Columna1 tablaAnidada4 -->
+                    <div class="columna1_tablaAnidada4">Columna de 240px ancho</div>
+                    <!-- Columna2 tablaAnidada4 -->
+                    <div class="columna2_tablaAnidada4">Columna de 240px ancho</div>
+                
+                <!--Fila2 tablaAnidada4-->
+                <div class="fila2_tablaAnidada4">Fila de 200px alto</div>
+                
+                    <!-- Columna1 tablaAnidada4 -->
+                    <div class="columna1_tablaAnidada4">Columna de 240px ancho</div>
+                    <!-- Columna2 tablaAnidada4 -->
+                    <div class="columna2_tablaAnidada4">Columna de 240px ancho</div>
+
+                </div>
+            </div>
+        
+
+
+
+
+    </div>
+
+
+
+
+    
+</body>
+</html>
