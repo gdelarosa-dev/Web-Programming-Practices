@@ -141,10 +141,29 @@
 
         }
 
-        /*------------------------- TABLA ANIDADA4 */
+        /* ------------------------- TABLA ANIDADA 4: Cuatro cuadrantes iguales ----------------------- */
 
+        /* Cada fila mide 200px x 100px. Sin borde */
+        .fila1_tablaAnidada4, .fila2_tablaAnidada4 {
+            width: 200px;
+            height: 100px;
 
+        }
 
+        /* Cada cuadrante mide 100px x 100px en total */
+        .columna1_tablaAnidada4, .columna2_tablaAnidada4 {
+            float: left;
+            width: 200px;
+            height: 100px;
+        }
+
+        /* Cada cuadrante mide 100px x 100px en total */
+        .columna1_tablaAnidada4, .columna2_tablaAnidada4 {
+            float: left;
+            width: 98px; /* 100px - 2px del borde */
+            height: 98px; /* 100px - 2 px del borde */
+            border: 1px solid black;
+        }
 
     </style>
 
@@ -168,14 +187,15 @@
             <div class="columna1">
                 <!-- Tabla anidada al centro del primer cuadro -->
                 <div class="tablaAnidada1">
+
                     <!-- Fila 1 tablaAnidada1 -->
-                        <div class="fila1_tablaAnidada1"> Fila 50px alto </div>
+                    <div class="fila1_tablaAnidada1"></div>
 
                     <!-- Fila 2 tablaAnidada1 -->
-                        <div class="fila2_tablaAnidada1">
+                    <div class="fila2_tablaAnidada1">
             
                         <!-- Columna1 tablaAnidada1 -->
-                        <div class="columna1_tablaAnidada1"> Columna 100px ancho </div>
+                        <div class="columna1_tablaAnidada1"></div>
 
                         <!-- Columna2 tablaAnidada1 -->
                         <div class="columna2_tablaAnidada1"></div>
@@ -189,18 +209,21 @@
                 <!-- Tabla anidada al centro del segundo cuadro -->
                 <div class="tablaAnidada2">
                     <!-- Fila1 tablaAnidada2 -->
-                        <div class="fila1_tablaAnidada2"> Fila 50px alto </div>
+                    <div class="fila1_tablaAnidada2"></div>
 
                     <!-- Fila2 tablaAnidada2 -->
-                            <div class="fila2_tablaAnidada2">
+                    <div class="fila2_tablaAnidada2">
 
                             <!-- Columna1 tablaAnidada2 -->
-                            <div class="columna1_tablaAnidada2"> Columna 50% ancho </div>
+                            <div class="columna1_tablaAnidada2"></div>
 
                             <!-- Columna 2 -->
                             <div class="columna2_tablaAnidada2"></div>
-
                     </div>
+                    
+                    <!-- Fila 3 tablaAnidada2-->
+                    <div class="fila3_tablaAnidada2"></div>
+
                 </div>
             </div>        
 
@@ -217,57 +240,54 @@
                 <div class="tablaAnidada3">
                     
                     <!-- Fila1 tablaAnidada3 -->
-                    <div class="fila1_tablaAnidada3"> Fila 50 px alto </div>
+                    <div class="fila1_tablaAnidada3"></div>
 
         
-                    <!-- Fila2_tablaAnidada3 y fila3_tablaAnidada3 juntas (la columna de 100px abarca las dos filas)-->
+                    <!-- Filas 2 y 3 juntas (la columna angosta abarca las dos) -->
                     <div class="filaCentro">
 
-                    <!-- Columna1_tablaAnidada3 (abarca las filas 2 y 3)-->
-                    <div class="columna1_tablaAnidada3"> Columna 100px ancho </div>
+                        <!-- Columna1 tablaAnidada3 (abarca las filas 2 y 3) -->
+                        <div class="columna1_tablaAnidada3"></div>
+ 
+                        <!-- Columna2 tablaAnidada3 (contiene las filas 2 y 3, una arriba de la otra) -->
+                        <div class="columna2_tablaAnidada3">
+                            <div class="celda"></div> <!-- Fila 2 -->
+                            <div class="celda"></div> <!-- Fila 3 -->
+                        </div>
 
-                    <!-- Columna2_tablaAnidada3 (contiene las filas 2 y 3, una arriba de la otra)-->
-                    <div class="columna2_tablaAnidada3"> 
-                        <div class="celda"></div> <!-- Fila 2 -->
-                        <div class="celda"></div> <!-- Fila 3 -->
+
                     </div>
+                    
+                    <!-- Fila 4 tablaAnidada3 -->
+                    <div class="fila3_tablaAnidada3"></div>
+
                 </div>
-            </div>
+            </div> <!-- Aqui se cierra la columna 1-->
 
             <!-- Columna 2 -->
 
             <div class="columna2">
-            <!-- Tabla anidada al centro del segundo cuadro -->
-            <div class="tablaAnidada4"> <!-- TablaAnidada4 debe tener cuatro cuadrantes iguales del mismo tamaño -->
-                
-                <!--Fila1 tablaAnidada4-->
-                <div class="fila1_tablaAnidada4">Fila de 200px alto</div>
-                
-                    <!-- Columna1 tablaAnidada4 -->
-                    <div class="columna1_tablaAnidada4">Columna de 240px ancho</div>
-                    <!-- Columna2 tablaAnidada4 -->
-                    <div class="columna2_tablaAnidada4">Columna de 240px ancho</div>
-                
-                <!--Fila2 tablaAnidada4-->
-                <div class="fila2_tablaAnidada4">Fila de 200px alto</div>
-                
-                    <!-- Columna1 tablaAnidada4 -->
-                    <div class="columna1_tablaAnidada4">Columna de 240px ancho</div>
-                    <!-- Columna2 tablaAnidada4 -->
-                    <div class="columna2_tablaAnidada4">Columna de 240px ancho</div>
-
+                <!-- Tabla anidada al centro del cuarto cuadro: cuatro cuadrantes iguales -->
+                <div class="tablaAnidada4">
+ 
+                    <!-- Fila 1 tablaAnidada4 -->
+                    <div class="fila1_tablaAnidada4">
+                        <div class="columna1_tablaAnidada4"></div>
+                        <div class="columna2_tablaAnidada4"></div>
+                    </div>
+ 
+                    <!-- Fila 2 tablaAnidada4 -->
+                    <div class="fila2_tablaAnidada4">
+                        <div class="columna1_tablaAnidada4"></div>
+                        <div class="columna2_tablaAnidada4"></div>
+                    </div>
+ 
                 </div>
             </div>
-        
-
-
-
-
-    </div>
-
-
-
-
+ 
+        </div> <!-- Aqui se cierra la fila 2 -->
+ 
+    </div> <!-- Aqui se cierra la caja principal -->
     
 </body>
 </html>
