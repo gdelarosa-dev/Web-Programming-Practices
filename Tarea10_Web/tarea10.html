@@ -1,6 +1,6 @@
 <!-- Gabriel De La Rosa Grijalva -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +8,32 @@
 
     <script src="js/jquery-4.0.0.min.js"></script>
 
-    <!-- Sintaxis de JavaScript -->
-    <!--Aqui debe de haber una funcion que valide que los 3 campos del formulario no esten vacios, si alguno de ellos 
-    esta vacio debe de mostrar un mensaje en el div con id mensaje que diga "Faltan campos por llenar", si los 3 campos estan 
-    llenos debe de mostrar un mensaje en el div con id mensaje que diga "Campos llenos" y limpiar los campos del formulario.-->
+    <style>
+        body {
+            background-color: #e8f0fe;
+            font-family: Arial;
+        }
+
+        #caja {
+            width: 300px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #4a90e2;
+            text-align: center;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        #mensaje {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 
     <script>
         function valida(){
@@ -19,42 +41,41 @@
             var pass = $("#pass").val();
             var rol = $("#rol").val();
 
+            // Si falta algun campo, se muestra el mensaje en el div
             if(user === "" || pass === "" || rol === "0"){
                 $("#mensaje").html("Faltan campos por llenar");
-                setTimeout(function() {
-                    $("#mensaje").html("");
-                }, 2000);
             } else {
-                $("#mensaje").html("Campos llenos");
-                setTimeout(function() {
-                    $("#mensaje").html("");
-                }, 2000);
-                document.forma01.method = 'get';
-                document.forma01.action = 'recibe.php';
+                // Si todo esta lleno, se envia al PHP
                 document.forma01.submit();
             }
         }
-
     </script>
-
-    
 </head>
 <body>
 
-    <form name="forma01" id="forma01" method="get" action="recibe.php" align="center"> 
+    <div id="caja">
 
-        <input type="text" name="user" id="user" placeholder="Correo" /><br>
-        <input type="text" name="pass" id="pass" placeholder="Pass" /><br>
-        <select name="rol" id="rol">
-            <option value="0">Selecciona</option>
-            <option value="1">Gerente</option>
-            <option value="2">Ejecutivo</option>
-        </select>
-        <br>
-        <input onclick="valida() ; return false;" type="submit" value="Enviar"/>
-        <div id="mensaje"></div>
+        <h2>Formulario</h2>
 
+        <form name="forma01" id="forma01" method="get" action="recibe.php">
 
-    
+            <input type="text" name="user" id="user" placeholder="Correo" /><br>
+            <input type="text" name="pass" id="pass" placeholder="Pass" /><br>
+
+            <select name="rol" id="rol">
+                <option value="0">Selecciona</option>
+                <option value="1">Gerente</option>
+                <option value="2">Ejecutivo</option>
+            </select>
+            <br>
+
+            <input type="button" value="Enviar" onclick="valida()" />
+
+            <div id="mensaje"></div>
+
+        </form>
+
+    </div>
+
 </body>
 </html>
