@@ -4,14 +4,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Tabla modelos de audi / Tarea 9 </title>
+    <title>Tabla Modelos de Audi / Tarea 9 </title>
+
+
+<script src="js/jquery-4.0.0.min.js"></script>
+
+
+    <!-- Estilos: Aqui le damos a los divs la forma de una tabla -->
+    <style>
+        /* Contenedor principal: reemplaza a <table> */
+        .tabla {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Cada fila: reemplaza a <tr>. 
+            "overflow: hidden" hace que la fila se estire para abarcar a sus columnas */
+        .fila {
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        /* Cada columna: reemplaza a <td> 
+            "float: left" las acomoda una al lado de la otra, pegadas a la izquierda
+            "width: 32%" hace que cada una mida casi un tercio del ancho de la tabla
+            "height:160px" hace que todas las columnas midan lo mismo de alto */
+        .columna {
+            float: left;
+            width: 32%;
+            height: 160px;
+            border: 1px solid black;
+        }
+
+        /* Fila del titulo */
+        .titulo {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+
+
+    </style>>
+
+    <!-- Funcion que oculta la fila (div) del boton que se presiona -->
+    <script>
+        function ocultarFila(boton) {
+            // confirm() muestra una ventana con Aceptar y Cancelar
+            if (confirm("¿Estás seguro de que deseas eliminar esta fila?")) {
+                // closest(".fila") busca el div más cercano con la clase "fila" y lo oculta
+                // hide() lo oculta
+                $(boton).closest(".fila").hide();
+            }
+        }
+
+    </script>
+
+
 </head>
-<script> src="js/jquery"</script>
-
-//hello world
-
 
 <body>
+    
+    <div class="tabla">
+
+        <!-- Fila del titulo de la tabla -->
+        <div class="titulo">Modelos de Audi</div>
+
+        <!-- Fila 1 -->
+        <div class="fila">
+            <div class="columna">
+                <a href = "https://www.audi.com/en/audi-a5-sedan-16091" target="_blank">
+                    <img src="audia5_Sedan.jpg" width="200">
+                </a>
+            </div>
+            <div class="columna">
+                <a href="https://www.audi.com/en/audi-a5-sedan-16091" target="_blank">Audi A5 Sedan</a>
+            </div>
+            <div class="columna">
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </div>
+        </div>
+
+        <!-- Fila 2 -->
+        <div class="fila">
+            <div class="columna">
+                <a href = "https://www.audi.com/en/audi-a8-51" target="_blank">
+                    <img src="audia8.jpg" width="200">
+                </a>
+            </div>
+            <div class="columna">
+                <a href = "https://www.audi.com/en/audi-a8-51" target="_blank">Audi A8</a>
+            </div>
+            <div class="columna">
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </div>
+        </div>
+
+        <!-- Fila 3 -->
+        <div class="fila">
+            <div class="columna">
+                <a href = "https://www.audi.com/en/audi-q3-suv-16689" target="_blank">
+                    <img src="audiq3_Suv.jpg" width="200">
+                </a>
+            </div>
+            <div class="columna">
+                <a href = "https://www.audi.com/en/audi-q3-suv-16689" target="_blank">Audi Q3 SUV</a>
+            </div>
+            <div class="columna">
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </div>
+        </div>
+
+        <!-- Fila 4 -->
+        <div class="fila">
+            <div class="columna">
+                <a href = "https://www.audi.com/en/audi-q5-suv-16690" target="_blank">
+                    <img src="audiq5_Suv.jpg" width="200">
+                </a>
+            </div>
+            <div class="columna">
+                <a href = "https://www.audi.com/en/audi-q5-suv-16690" target="_blank">Audi Q5 SUV</a>
+            </div>
+            <div class="columna">
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </div>
+        </div>
+
+        <!-- Fila 5 -->
+        <div class="fila">
+            <div class="columna">
+                <a href = "https://www.audi.com/en/audi-q9-suv-18146" target="_blank">
+                    <img src="audiq9_Suv.jpg" width="200">
+                </a>
+            </div>
+            <div class="columna">
+                <a href = "https://www.audi.com/en/audi-q9-suv-18146" target="_blank">Audi Q9 SUV</a>
+            </div>
+            <div class="columna">
+                <button onclick="ocultarFila(this)">Eliminar</button>
+            </div>
+        </div>
+        
+
+
+    </div>
     
 </body>
 </html>
